@@ -1,8 +1,9 @@
 package com.Shivam.DemoHibernate;
 
-import org.hibernate.Session;
+import org.hibernate.Session;	
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.Transaction;
 
 public class App 
 {
@@ -14,10 +15,11 @@ public class App
     	student.setRollNumber(13);
     	student.setStudentId(01);
     	
-    	Configuration config = new Configuration();	
+    	Configuration config = new Configuration().configure().addAnnotatedClass(Student.class);	
     	SessionFactory sessionFactory = config.buildSessionFactory();
     	Session session = sessionFactory.openSession();
-    	session.save(student);
-    	
+    	Transaction tx = session.beginTransaction();
+    	session.save(student); 
+    	tx.commit();
     }
 }

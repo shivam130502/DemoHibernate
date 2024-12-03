@@ -1,10 +1,15 @@
 package com.Shivam.DemoHibernate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity	
 public class Student {
 
+	@Id
+	private int studentId;
 	private String name;
 	private int rollNumber;
-	private int studentId;
 	public String getName() {
 		return name;
 	}
