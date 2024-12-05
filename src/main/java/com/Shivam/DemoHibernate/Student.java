@@ -10,6 +10,7 @@ public class Student {
 	private int studentId;
 	private String name;
 	private int rollNumber;
+	
 	public String getName() {
 		return name;
 	}
@@ -28,7 +29,5 @@ public class Student {
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
-	
-	
 	
 }

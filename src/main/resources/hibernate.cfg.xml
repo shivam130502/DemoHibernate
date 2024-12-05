@@ -10,5 +10,9 @@
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">admin</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<!-- update keyword updates the table in the database. create keyword just creates the table -->
+		<property name="hbm2ddl.auto">update</property>
+		
 	</session-factory>
 </hibernate-configuration>
