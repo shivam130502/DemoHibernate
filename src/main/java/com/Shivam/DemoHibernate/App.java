@@ -18,9 +18,9 @@ public class App
 //    	student.setStudentId(01);
     	
     	Employee employee = new Employee();
-    	employee.setName("Shivam");
-    	employee.setEmployeeId(02);
-    	employee.setEmployeeSalary(50000);
+//    	employee.setName("Rashi");
+//    	employee.setEmployeeId(03);
+//    	employee.setEmployeeSalary(500000);
     	
     	// configure() method is used to interact with hibernate.cfg.xml file
     	Configuration config = new Configuration().configure().addAnnotatedClass(Employee.class);
@@ -33,8 +33,13 @@ public class App
     	
     	Transaction tx = session.beginTransaction();
     	
-    	session.save(employee); 
+    	//session.save(employee); 
+    	
+    	// Fetching data from database. Get method takes class and (primary key or id) as parameter.
+    	employee = session.get(Employee.class, 3);
     	
     	tx.commit();
+    	
+    	System.out.println(employee);
     }
 }
