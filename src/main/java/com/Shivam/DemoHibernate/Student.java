@@ -16,7 +16,8 @@ public class Student {
 	private String name;
 	private int rollNumber;
 	
-	@OneToMany // relational mapping
+	// relational mapping
+	@OneToMany(mappedBy = "student") // mappedBy lets this class know that the mapping is already being done by another object.
 	private List<Laptop> laptop = new ArrayList();
 	
 	public List<Laptop> getLaptop() {
