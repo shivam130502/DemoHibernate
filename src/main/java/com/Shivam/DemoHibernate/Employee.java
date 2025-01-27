@@ -4,22 +4,23 @@ package com.Shivam.DemoHibernate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-// Entity keyword means object will be persisted in a database. 
+// Entity keyword means object will be persisted(put/stored) in the database. 
 @Entity	
 public class Employee {
 	
 	// Id keyword denotes the unique primary key to be put in database.
 	@Id
 	private int employeeId;
-	private String employeeName;
+	private Member member;
 	private int employeeSalary;
 	
-	public String getName() {
-		return employeeName;
+	public Member getMember() {
+		return member;
 	}
-	public void setName(String name) {
-		this.employeeName = name;
+	public void setMember(Member member) {
+		this.member = member;
 	}
+	
 	public int getEmployeeId() {
 		return employeeId;
 	}
@@ -32,12 +33,9 @@ public class Employee {
 	public void setEmployeeSalary(int salary) {
 		this.employeeSalary = salary;
 	}
-	
 	@Override
 	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", employeeSalary="
-				+ employeeSalary + "]";
+		return "Employee [employeeId=" + employeeId + ", member=" + member + ", employeeSalary=" + employeeSalary + "]";
 	}
-	
 	
 }

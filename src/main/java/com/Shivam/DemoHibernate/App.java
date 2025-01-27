@@ -9,7 +9,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 	
 public class App 
 {
-    public static void main( String[] args )
+    @SuppressWarnings("deprecation") // suppress deprecation warnings. 
+	public static void main( String[] args )
     {
         
 //    	Student student = new Student();
@@ -17,7 +18,16 @@ public class App
 //    	student.setRollNumber(13);
 //    	student.setStudentId(01);
     	
+    	Member member = new Member();
+    	member.setfName("Mathew");
+    	member.setmName("Suresh");
+    	member.setlName("Zachariah");
+    	
     	Employee employee = new Employee();
+    	employee.setEmployeeId(101);
+    	employee.setEmployeeSalary(45000);
+    	employee.setMember(member); // embedding an object into another table.
+    	
 //    	employee.setName("Rashi");
 //    	employee.setEmployeeId(03);
 //    	employee.setEmployeeSalary(500000);
@@ -36,7 +46,9 @@ public class App
     	//session.save(employee); 
     	
     	// Fetching data from database. Get method takes class and (primary key or id) as parameter.
-    	employee = session.get(Employee.class, 3);
+    	//employee = session.get(Employee.class, 3);
+    	
+    	session.save(employee);
     	
     	tx.commit();
     	
