@@ -1,7 +1,12 @@
 package com.Shivam.DemoHibernate;
 
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity	
 public class Student {
@@ -11,6 +16,15 @@ public class Student {
 	private String name;
 	private int rollNumber;
 	
+	@OneToMany // relational mapping
+	private List<Laptop> laptop = new ArrayList();
+	
+	public List<Laptop> getLaptop() {
+		return laptop;
+	}
+	public void setLaptop(List<Laptop> laptop) {
+		this.laptop = laptop;
+	}
 	public String getName() {
 		return name;
 	}
@@ -28,6 +42,11 @@ public class Student {
 	}
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
+	}
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", name=" + name + ", rollNumber=" + rollNumber + ", laptop="
+				+ laptop + "]";
 	}
 	
 }

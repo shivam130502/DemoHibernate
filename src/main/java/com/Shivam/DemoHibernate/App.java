@@ -13,27 +13,32 @@ public class App
 	public static void main( String[] args )
     {
         
-//    	Student student = new Student();
-//    	student.setName("Priya");
-//    	student.setRollNumber(13);
-//    	student.setStudentId(01);
+    	Laptop laptop = new Laptop();
+    	laptop.setlId(101);
+    	laptop.setlName("Asus");
     	
-    	Member member = new Member();
-    	member.setfName("Mathew");
-    	member.setmName("Suresh");
-    	member.setlName("Zachariah");
+    	Student student = new Student();
+    	student.setName("Priya");
+    	student.setRollNumber(13);
+    	student.setStudentId(01);
+    	student.getLaptop().add(laptop); 
     	
-    	Employee employee = new Employee();
-    	employee.setEmployeeId(101);
-    	employee.setEmployeeSalary(45000);
-    	employee.setMember(member); // embedding an object into another table.
+//    	Member member = new Member();
+//    	member.setfName("Mathew");
+//    	member.setmName("Suresh");
+//    	member.setlName("Zachariah");
+    	
+//    	Employee employee = new Employee();
+//    	employee.setEmployeeId(101);
+//    	employee.setEmployeeSalary(45000);
+//    	employee.setMember(member); // embedding an object into another table.
     	
 //    	employee.setName("Rashi");
 //    	employee.setEmployeeId(03);
 //    	employee.setEmployeeSalary(500000);
     	
     	// configure() method is used to interact with hibernate.cfg.xml file
-    	Configuration config = new Configuration().configure().addAnnotatedClass(Employee.class);
+    	Configuration config = new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
     	
     	ServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
     	
@@ -48,10 +53,11 @@ public class App
     	// Fetching data from database. Get method takes class and (primary key or id) as parameter.
     	//employee = session.get(Employee.class, 3);
     	
-    	session.save(employee);
+    	session.save(laptop);
+    	session.save(student);
     	
     	tx.commit();
     	
-    	System.out.println(employee);
+    	System.out.println(student);
     }
 }
