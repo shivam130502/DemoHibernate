@@ -14,13 +14,13 @@ public class App
     {
         
     	Laptop laptop = new Laptop();
-    	laptop.setlId(101);
-    	laptop.setlName("Asus");
+    	laptop.setlId(103);
+    	laptop.setlName("Lenovo");
     	
     	Student student = new Student();
-    	student.setName("Priya");
-    	student.setRollNumber(13);
-    	student.setStudentId(01);
+    	student.setName("Niggatosh");
+    	student.setRollNumber(14);
+    	student.setStudentId(03);
     	student.getLaptop().add(laptop); 
     	
 //    	Member member = new Member();
@@ -50,8 +50,8 @@ public class App
     	
     	//session.save(employee); 
     	
-    	// Fetching data from database. Get method takes class and (primary key or id) as parameter.
-    	//employee = session.get(Employee.class, 3);
+    	//Fetching data from database. Get method takes class and (primary key or id) as parameter.
+    	//Employee employee = session.get(Employee.class, 3);
     	
     	session.save(laptop);
     	session.save(student);
