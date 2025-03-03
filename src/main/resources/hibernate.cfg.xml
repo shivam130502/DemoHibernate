@@ -14,5 +14,7 @@
 		<!-- update keyword updates the table in the database. create keyword just creates the table -->
 		<property name="hbm2ddl.auto">update</property>
 		
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		
 	</session-factory>
 </hibernate-configuration>

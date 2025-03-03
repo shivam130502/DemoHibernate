@@ -14,14 +14,16 @@ public class App
     {
         
     	Laptop laptop = new Laptop();
-    	laptop.setlId(103);
-    	laptop.setlName("Lenovo");
+    	laptop.setlId(104);
+    	laptop.setlName("HP");
     	
     	Student student = new Student();
-    	student.setName("Niggatosh");
-    	student.setRollNumber(14);
-    	student.setStudentId(03);
+    	student.setName("Dinesh");
+    	student.setRollNumber(15);
+    	student.setStudentId(06);
     	student.getLaptop().add(laptop); 
+    	
+    	Student s = null;
     	
 //    	Member member = new Member();
 //    	member.setfName("Mathew");
@@ -56,8 +58,19 @@ public class App
     	session.save(laptop);
     	session.save(student);
     	
-    	tx.commit();
+    	s = session.get(Student.class, 15);
     	
-    	System.out.println(student);
+    	tx.commit();
+    	session.close();
+    	
+//    	Session session2 = sessionFactory.openSession();
+//    	tx = session2.beginTransaction();
+//    	
+//    	s = session2.get(Student.class, 15);
+//    	
+//    	tx.commit();
+//    	session2.close();
+    	
+    	//System.out.println(student);
     }
 }
